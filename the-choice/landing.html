@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>The Choice</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Entire screen becomes the button */
+    .album-link {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      overflow: hidden;
+      text-decoration: none;
+      background: black;
+    }
+
+    /* Fullscreen cover image */
+    .album-cover {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform 0.8s ease;
+    }
+
+    /* Slight zoom for cinematic feel */
+    .album-link:active .album-cover {
+      transform: scale(1.03);
+    }
+
+    /* Dark gradient for readability */
+    .overlay {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.15) 0%,
+          rgba(0,0,0,0.25) 35%,
+          rgba(0,0,0,0.55) 100%
+        );
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      padding-bottom: 12vh;
+    }
+
+    /* Enter button */
+    .enter {
+      color: white;
+
+      font-size: 1rem;
+      letter-spacing: 0.35rem;
+      text-transform: uppercase;
+
+      border: 1px solid rgba(255,255,255,0.4);
+
+      padding:
+        14px
+        28px;
+
+      background: rgba(255,255,255,0.08);
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      border-radius: 999px;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .album-link:active .enter {
+      transform: scale(0.97);
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* iPhone notch safe area */
+    @supports (padding: max(0px)) {
+      .overlay {
+        padding-bottom:
+          max(12vh, env(safe-area-inset-bottom));
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      .enter {
+        font-size: 0.9rem;
+        letter-spacing: 0.25rem;
+
+        padding:
+          12px
+          24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Replace with your actual album link -->
+  <a
+    class="album-link"
+    href="https://echostream-977545892955.europe-west1.run.app/album/The%20Choice"
+    target="_blank"
+  >
+
+    <!-- Rename image to something cleaner -->
+    <img
+      class="album-cover"
+      src="cover.jpeg"
+      alt="The Choice Album Cover"
+    />
+
+    <div class="overlay">
+      <div class="enter">
+        Reprodueix
+      </div>
+    </div>
+
+  </a>
+
+</body>
+</html>
